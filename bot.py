@@ -203,6 +203,7 @@ def main() -> None:
     """Run no bot."""
 
     # Create the Updater and pass it your bot's token.
+    global TOKEN
     updater = Updater(TOKEN)
 
     # Get the dispatcher to register handlers
