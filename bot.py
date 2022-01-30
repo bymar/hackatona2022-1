@@ -202,8 +202,7 @@ def tchau(update: Update, context: CallbackContext) -> int:
 def main() -> None:
     """Run no bot."""
     
-    token_file = open('token.txt', 'r')
-    token = token_file.read()
+    token = TOKEN
 
     # Create the Updater and pass it your bot's token.
     updater = Updater(token)
