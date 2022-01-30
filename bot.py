@@ -28,8 +28,6 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
-import os
-PORT = int(os.environ.get('PORT', 5000))
 
 # Ativa logging
 logging.basicConfig(
@@ -37,7 +35,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-TOKEN = '5175975992:AAF9CKJFAuE_o6I6Hp90l1XupPypem8z3lE'
 
 SAFETY, FLOWS, OPTIONS, PHOTO, ANSWER, LOCATION = range(6)
 
@@ -202,8 +199,12 @@ def tchau(update: Update, context: CallbackContext) -> int:
 def main() -> None:
     """Run no bot."""
 
+    import os
+    PORT = int(os.environ.get('PORT', 5000))
+    TOKEN = '5175975992:AAF9CKJFAuE_o6I6Hp90l1XupPypem8z3lE'
+
     # Create the Updater and pass it your bot's token.
-    global TOKEN
+    # global TOKEN
     updater = Updater(TOKEN)
 
     # Get the dispatcher to register handlers
@@ -228,7 +229,7 @@ def main() -> None:
     updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
                           url_path=TOKEN)
-    updater.bot.setWebhook('https://yourherokuappname.herokuapp.com/' + TOKEN)
+    updater.bot.setWebhook('https://hackabot-telegram.herokuapp.com/' + TOKEN)
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
