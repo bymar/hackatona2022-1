@@ -201,11 +201,9 @@ def tchau(update: Update, context: CallbackContext) -> int:
 
 def main() -> None:
     """Run no bot."""
-    
-    token = TOKEN
 
     # Create the Updater and pass it your bot's token.
-    updater = Updater(token)
+    updater = Updater(TOKEN)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
