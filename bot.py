@@ -1,11 +1,4 @@
 """
-Esse é um simples bot baseado em conversa. O objetivo desse código é servir como base
-para um ensaio intuitivo para um hackathon. A conversa com o bot inicia com /nomedobot
-e finaliza com /tchau. 
-"""
-
-"""
-Amiga o segredo é o seguinte:
 na linha 41 tem umas constantes, tu pode adicionar mais e mudar o range se adicionar.
 Elas tu usa de retorno pq encaminha o fluxo do chat, tipo nomedobot -> flows -> options.
 isso tu configura dentro da função main onde tem justamente essas constante e a chamada para função.
