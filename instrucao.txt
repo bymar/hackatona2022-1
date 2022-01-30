@@ -1,0 +1,6 @@
+para rodar tu cria uma venv:
+python3 -m venv venv
+depois:
+pip install -r requirements.txt
+não esquecer:
+adicionar no .gitignore uma linha tendo -> token.txt (caso github for publico)
