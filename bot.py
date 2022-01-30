@@ -37,7 +37,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-TOKEN = '5074946712:AAETXG1rei1z6IdnZfL5xKM89dVdacqcVFw'
+TOKEN = '5175975992:AAF9CKJFAuE_o6I6Hp90l1XupPypem8z3lE'
 
 SAFETY, FLOWS, OPTIONS, PHOTO, ANSWER, LOCATION = range(6)
 
