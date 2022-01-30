@@ -197,12 +197,13 @@ def main() -> None:
     """Run no bot."""
 
     import os
-    PORT = int(os.environ.get('PORT', 5000))
+
+    PORT = int(os.environ.get('PORT', 8080))
     TOKEN = '5175975992:AAF9CKJFAuE_o6I6Hp90l1XupPypem8z3lE'
 
     # Create the Updater and pass it your bot's token.
     # global TOKEN
-    updater = Updater(TOKEN)
+    updater = Updater(TOKEN, use_context=True)
 
     # Get the dispatcher to register handlers
     dispatcher = updater.dispatcher
@@ -223,15 +224,18 @@ def main() -> None:
     dispatcher.add_handler(conv_handler)
 
     # Start the Bot
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN)
-    updater.bot.setWebhook('https://hackabot-telegram.herokuapp.com/' + TOKEN)
+    updater.start_webhook(
+        listen="0.0.0.0",
+        port=int(PORT),
+        url_path=TOKEN,
+        webhook_url='https://hackabot-telegram.herokuapp.com/' + TOKEN
+    )
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
     updater.idle()
+
 
 
 if __name__ == '__main__':
