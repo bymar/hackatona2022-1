@@ -18,19 +18,19 @@ def bot():
         responded = True
 
     if 'perigo' in incoming_msg or '1' in incoming_msg:
-        msg.media('1 - EMERGENCIA \n2 - Compartilhe sua localizacao com a gente que ficaremos de olho.')
+        msg.body('1 - EMERGENCIA \n2 - Compartilhe sua localizacao com a gente que ficaremos de olho.')
         responded = True
 
     if 'segura' in incoming_msg or '2' in incoming_msg:
-        msg.media('Que maravilha, fico muito feliz! Digite "Menu" pra eu poder te ajudar, amiga!')
+        msg.body('Que maravilha, fico muito feliz! Digite "Menu" pra eu poder te ajudar, amiga!')
         responded = True
 
     if 'menu' in incoming_msg:
-        msg.media('Opções:\nA - Quero registrar um novo local de vulnerabilidade\nB - Quero saber se minha rota está tranquila\nC - Quero saber qual o melhor horário para passar pela minha rota')
+        msg.body('Opções:\nA - Quero registrar um novo local de vulnerabilidade\nB - Quero saber se minha rota está tranquila\nC - Quero saber qual o melhor horário para passar pela minha rota')
         responded = True
 
     if 'a' in incoming_msg or 'b' in incoming_msg or 'c' in incoming_msg:
-        msg.media('Novas Features! Estarão sendo implementadas, aguarde!')
+        msg.body('Novas Features! Estarão sendo implementadas, aguarde!')
         responded = True
 
     if not responded:
