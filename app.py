@@ -30,7 +30,7 @@ def bot():
         responded = True
 
     if 'a' in incoming_msg or 'b' in incoming_msg or 'c' in incoming_msg:
-        msg.media('')
+        msg.media('Novas Features! Estarão sendo implementadas, aguarde!')
         responded = True
 
     if not responded:
