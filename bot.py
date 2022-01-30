@@ -28,6 +28,8 @@ from telegram.ext import (
     ConversationHandler,
     CallbackContext,
 )
+import os
+PORT = int(os.environ.get('PORT', 5000))
 
 # Ativa logging
 logging.basicConfig(
@@ -35,6 +37,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+TOKEN = '5074946712:AAETXG1rei1z6IdnZfL5xKM89dVdacqcVFw'
 
 SAFETY, FLOWS, OPTIONS, PHOTO, ANSWER, LOCATION = range(6)
 
@@ -224,7 +227,10 @@ def main() -> None:
     dispatcher.add_handler(conv_handler)
 
     # Start the Bot
-    updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN)
+    updater.bot.setWebhook('https://yourherokuappname.herokuapp.com/' + TOKEN)
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
