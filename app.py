@@ -12,22 +12,27 @@ def bot():
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
-    if 'citacao' in incoming_msg:
-        # retorne uma citação 
-        r = requests.get('https://api.quotable.io/random')
-        if r.status_code == 200:
-            data = r.json()
-            quote = f'{data["content"]} ({data["author"]})'
-        else:
-            quote = 'Não consegui recuperar uma citação neste momento, desculpe.'
-        msg.body(quote)
-        responded = True
-    if 'gato' in incoming_msg or 'gata' in incoming_msg:
-        # retorne uma foto de gato
-        msg.media('https://cataas.com/cat')
-        responded = True
+
+    if 'oi' in incoming_msg or 'eai' in incoming_msg:
+        msg.body('''Oii! Eu sou a Lélia, pode me chamar de Lê. Posso te ajudar a encontrar as rodas para você se sentir mais segura. 
+                    Além disso, pode contar comigo caso estiver em situação de risco.\n\nVocê está segura?\n\n1 - Perigo\n2 - Segura''')
+        responded = False
+
+    if 'perigo' in incoming_msg:
+        msg.media('1 - EMERGENCIA \n2 - Compartilhe sua localizacao com a gente que ficaremos de olho.')
+        responded = False
+
+    if 'segura' in incoming_msg:
+        msg.media('Que maravilha, fico muito feliz! Digite "Menu" pra eu poder te ajudar, amiga!')
+        responded = False
+
+    if 'menu' in incoming_msg:
+        msg.media('Opções:\n1. Quero registrar um novo local de vulnerabilidade\n2. Quero saber se minha rota está tranquila\n3. Quero saber qual o melhor horário para passar pela minha rota')
+        responded = False
+
     if not responded:
-        msg.body('Só conheço frases e gatos famosos, desculpe!')
+        msg.body('Desculpe, não entendi!')
+
     return str(resp)
 
 if __name__ == '__main__':
