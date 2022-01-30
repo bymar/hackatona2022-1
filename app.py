@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, request
 import requests
 from twilio.twiml.messaging_response import MessagingResponse
@@ -11,7 +12,7 @@ def bot():
     resp = MessagingResponse()
     msg = resp.message()
     responded = False
-    if 'citação' in incoming_msg:
+    if 'citacao' in incoming_msg:
         # retorne uma citação 
         r = requests.get('https://api.quotable.io/random')
         if r.status_code == 200:
