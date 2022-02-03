@@ -12,7 +12,7 @@ Instalação da aplicação:
 
 ---
 
-Lélia em uso:
+Lê em uso:
 
 
 <img src="readme_gif.gif">
